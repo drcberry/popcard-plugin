@@ -1,0 +1,27 @@
+{
+  "name": "popcard-plugin",
+  "version": "1.0.0",
+  "description": "Plugin to add popover to links",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "keywords": [
+    "popover"
+  ],
+  "author": "Colin",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "12.6.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "5.2.0",
+    "@wordpress/components": "12.0.0",
+    "@wordpress/data": "4.26.0",
+    "@wordpress/edit-post": "3.26.0",
+    "@wordpress/i18n": "3.17.0",
+    "@wordpress/plugins": "2.24.0",
+    "@wordpress/rich-text": "3.24.0"
+  }
+}
