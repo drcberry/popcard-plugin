@@ -3,7 +3,9 @@ import { __ } from "@wordpress/i18n";
 import { registerPlugin } from "@wordpress/plugins";
 import { PluginSidebar, PluginSidebarMoreMenuItem } from "@wordpress/edit-post";
 import { PanelBody, TextControl } from "@wordpress/components";
-import { withSelect } from "@wordpress/data";
+import { withSelect, withDispatch } from "@wordpress/data";
+
+// Look at @wordpress/compose for another higher order component solution
 
 let PopcardInputs = (props) => {
   
@@ -16,14 +18,34 @@ let PopcardInputs = (props) => {
         icon="admin-post"
         intialOpen={ true }
       >
-        <TextControl 
-          value={wp.data.select('core/editor').getEditedPostAttribute('meta')['_popcard_text_metafield']}
-          label={__("Link Text", "textdomain")}
+        <TextControl
+          label={__("Link Text", "textdomain")} 
+          value={props.text_metafield}
+          onChange={(value) => props.onMetaFieldChange(value)}
         />
       </PanelBody>
     </>
   )
 }
+  PopcardInputs = withSelect(
+    (select) => {
+        return {
+            text_metafield: select('core/editor').getEditedPostAttribute('meta')['_popcard_text_metafield']
+        }
+    }
+  )(PopcardInputs);
+  
+  PopcardInputs = withDispatch(
+    (dispatch) => {
+    return {
+      onMetaFieldChange: (value) => {
+        dispatch('core/editor').editPost({meta: {_popcard_text_metafield: value}})
+      }
+    }
+  }
+  )(PopcardInputs);
+
+
 
 
 
