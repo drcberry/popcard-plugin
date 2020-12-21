@@ -5,8 +5,9 @@ import { PluginSidebar, PluginSidebarMoreMenuItem } from "@wordpress/edit-post";
 import { PanelBody, TextControl } from "@wordpress/components";
 import { withSelect, withDispatch } from "@wordpress/data";
 
+import './popcard-style.css';
 //Import FormatButton
-//import {FormatButton} from './format-button.js';
+import {FormatButton} from './format-button.js';
 //import {MyPopover} from './myPopover.js';
 
 // Look at @wordpress/compose for another higher order component solution

@@ -23,12 +23,28 @@
  
  function popcard_enqueue_assets() {
   wp_enqueue_script(
-    'popcard-popover',
+    'popcard-plugin',
     plugins_url( 'build/index.js', __FILE__ ),
     array('wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins', 'wp-polyfill', 'wp-rich-text')
   );
+  
+  
 }
 add_action( 'enqueue_block_editor_assets', 'popcard_enqueue_assets' );
+
+
+function popcard_style_assets() {
+    
+    wp_register_style(
+        'popcard_style_assets',
+		plugins_url( 'build/index.css', __FILE__ ),
+		
+    );
+    
+    wp_enqueue_style( 'popcard_style_assets' );
+    
+    }
+add_action( 'init', 'popcard_style_assets' );
 
 function popcard_register_meta() {
   register_meta('post', '_popcard_text_metafield', array(

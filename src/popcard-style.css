@@ -1,0 +1,80 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap');
+ 
+:root {
+  --bg-color: green;
+  --text-color: #eeefff;
+  --link-color: #20a4f3;
+}
+/*
+p {
+	
+	background-color: var(--bg-color);
+	color: #efe;
+	border: 1px solid var(--text-color);
+	border-radius: 8px;
+	padding: 2px;
+
+	a {
+		color: var(--link);
+		text-decoration: none;
+	}
+*/
+.tooltip-box {
+    color: var(--link-color);
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+	  
+/* Tooltip text */
+.tooltip-box .tooltip-text {
+    visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border: 1px solid var(--link-color);
+	border-radius: 6px;
+	  
+	/* Position the tooltip text */
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	  
+	/* Fade in tooltip */
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+	  
+/* Tooltip arrow */
+.tooltip-box .tooltip-text::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+	  
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip-box:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+} 
+/*} */
+wp-block-create-block-pop-card input[type='text'] {
+    background: gray;
+}
+
+

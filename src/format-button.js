@@ -2,8 +2,10 @@
 import { registerFormatType, toggleFormat, applyFormat, removeFormat } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 
-export const FormatButton = props => {
+import {PopIcon} from './pop-icon.js';
 
+export const FormatButton = props => {
+  
   const toggleSpan = () => {
     props.onChange( 
     toggleFormat(
@@ -18,11 +20,12 @@ export const FormatButton = props => {
   }
       
   return <RichTextToolbarButton
-    icon='testimonial'
+    icon={ PopIcon }
     title='Wrap with span'
+    isActive={ props.isActive }
     onClick={ toggleSpan }
-    isActive={ props.isActive } 
-  />
+    />
+    
 };
 
 registerFormatType(
