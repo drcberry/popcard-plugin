@@ -4,38 +4,53 @@ import { registerPlugin } from "@wordpress/plugins";
 import { PluginSidebar, PluginSidebarMoreMenuItem } from "@wordpress/edit-post";
 import { PanelBody, TextControl } from "@wordpress/components";
 import { withSelect, withDispatch } from "@wordpress/data";
-
+//Imports to create custom store for input fields
+import {Popstore} from './my-store.js';
+//Import styles
 import './popcard-style.css';
+import './popcard-editor.css';
 //Import FormatButton
 import {FormatButton} from './format-button.js';
-//import {MyPopover} from './myPopover.js';
 
 // Look at @wordpress/compose for another higher order component solution
 
 let PopcardInputs = (props) => {
   
-  let link = 'link';
-  //document.querySelector('code').textContent;
   return (
     <>
       <PanelBody
-        title={__("Popcard Info", "textdomain")}
+        title={__("Popcard Details", "textdomain")}
         icon="admin-post"
         intialOpen={ true }
       >
+        
         <TextControl
-          label={__("Link Text", "textdomain")} 
-          value={props.text_metafield}
-          onChange={(value) => props.onMetaFieldChange(value)}
+        label="Heading"
+        placeholder="Enter heading/title"
+        onChange={ (val) => props.onTitleChange( val) }
+        />
+        <TextControl
+        label="Url"
+        placeholder="Enter url"
+        onChange={ (val) => props.onUrlChange( val) }
+        />
+        <TextControl
+        label="Link text"
+        placeholder="Enter text for url"
+        onChange={ (val) => props.onUrlTextChange( val) }
         />
       </PanelBody>
     </>
   )
 }
+  
+  //My popcard inputs
   PopcardInputs = withSelect(
     (select) => {
         return {
-            text_metafield: select('core/editor').getEditedPostAttribute('meta')['_popcard_text_metafield']
+            title: select('popcard/data').getPopcard('title'),
+            url: select('popcard/data').getPopcard('url'),
+            urlText: select('popcard/data').getPopcard('urlText'),
         }
     }
   )(PopcardInputs);
@@ -43,9 +58,15 @@ let PopcardInputs = (props) => {
   PopcardInputs = withDispatch(
     (dispatch) => {
     return {
-      onMetaFieldChange: (value) => {
-        dispatch('core/editor').editPost({meta: {_popcard_text_metafield: value}})
-      }
+      onTitleChange: (val) => {
+        dispatch('popcard/data').setPopcard('title', val)
+        },
+      onUrlChange: (val) => {
+      	dispatch('popcard/data').setPopcard('url', val)
+      },
+      onUrlTextChange: (val) => {
+      	dispatch('popcard/data').setPopcard('urlText', val)
+    	}
     }
   }
   )(PopcardInputs);
@@ -77,7 +98,6 @@ registerPlugin( 'popcard-sidebar', {
     )
   }
 })
-
 
 
 
