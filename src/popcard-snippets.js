@@ -15,14 +15,11 @@ console.log('Popcard snippets are loaded');
 						function showSpan(e) {
 						  const popspanId = e.target.getAttribute('data-popid');
 						  
-						  console.log(popspanId, e);
-						  
 						  popspan = document.querySelector(`[data-span-popid='${popspanId}']`);
 						  popspan.classList.add('show-card');
 						  
-						  console.log('popspan',popspan);
 						  let allPopspan = document.querySelectorAll('[data-span-popid]');
-						  console.log(allPopspan[0]);
+						  
 						  allPopspan
 						  .forEach(item => {if(item.dataset.spanPopid !== popspanId) {
 						    item.classList.remove('show-card') } 
@@ -34,7 +31,6 @@ console.log('Popcard snippets are loaded');
 						    if(!clickInside) {
 						    popspan.classList.remove('show-card');
 						    
-						    console.log('outside',evt.target)
 						    document.removeEventListener('click', handleOpenSpan);
 						    }
 						  }
