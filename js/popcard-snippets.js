@@ -2,7 +2,7 @@
 console.log('Popcard snippets are loaded');
             const popcardLinks = document.querySelectorAll('.popcard-link');
             
-						let titleCard, popspan;
+						let popspan;
 				
 						if(popcardLinks) {
 							popcardLinks.forEach(item=> item.addEventListener('mouseenter',showSpan));

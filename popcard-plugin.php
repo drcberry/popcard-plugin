@@ -45,12 +45,13 @@ add_action( 'init', 'popcard_style_assets' );
 function popcard_js_snippets() {
 	wp_register_script(
 			'popcard_snippets',
-			plugins_url( '/src/popcard-snippets.js', __FILE__ ),
+			plugins_url( '/js/popcard-snippets.js', __FILE__ ),
 	);
 	
 	wp_enqueue_script('popcard_snippets');
 }
 add_action('wp_footer', 'popcard_js_snippets');
+
 /*
 //Moved to separate file and enqueued
 function add_my_js() {

@@ -39,7 +39,7 @@ export const FormatButton = props => {
         
     function addSpan() {
         
-    	const child = `<span class="popcard sr-only" data-span-popid=${popId} >${isTitle}<br></br>
+    	const child = `<span class="popcard" data-span-popid=${popId} >${isTitle}<br></br>
       <a href=${isUrl} rel="noreferrer noopener" target="_blank" >${isUrlText}</a></span>`;
     
     	const thisPopCard = document.querySelector(`[data-popid='${popId}']`);

@@ -13,7 +13,7 @@
 	position: absolute;
 	color: var(--text-color);
 	background: var(--bg-color);
-	font-size: 1rem;
+	font-size: 1em;
 	line-height: 1.5;
 	padding: 2px 10px;
 	width: 20px;
@@ -27,13 +27,13 @@
 	color: var(--link-color);
 	border-bottom: 1px dotted;
 	transition: none;
-	font-size: 0.9rem;
+	font-size: 0.9em;
 }
 .show-card {
 	position: absolute;
 	height: auto;
 	width: 220px;
-	margin: -3rem 10px 10px 2px;
+	margin: -3em 10px 10px 2px;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	box-shadow: 2px 2px 6px black;
@@ -53,7 +53,8 @@
 }
 
 //class for visually hidden, compatible with screen reader
-sr-only:not(:focus):not(:active) {
+//sr-only overridden in Elementor by Fontawesome with same class
+.popcard-sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
   clip-path: inset(50%);
   height: 1px;
