@@ -39,7 +39,7 @@ function popcard_style_assets() {
     
     wp_enqueue_style( 'popcard_style_assets' );
     
-    }
+}
 add_action( 'init', 'popcard_style_assets' );
 
 function popcard_js_snippets() {

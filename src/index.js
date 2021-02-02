@@ -11,6 +11,7 @@ import './popcard-style.css';
 import './popcard-editor.css';
 //Import FormatButton
 import {FormatButton} from './format-button.js';
+//import {PopcardButton} from './el-popcard-button.js';
 
 // Look at @wordpress/compose for another higher order component solution
 
@@ -39,6 +40,7 @@ let PopcardInputs = (props) => {
         placeholder="Enter text for url"
         onChange={ (val) => props.onUrlTextChange( val) }
         />
+        
       </PanelBody>
     </>
   )

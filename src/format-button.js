@@ -4,6 +4,7 @@ import { RichTextToolbarButton } from '@wordpress/block-editor';
 
 import {PopIcon} from './pop-icon.js';
 
+
 export const FormatButton = props => {
    
   function toggleBox() {
@@ -74,16 +75,16 @@ export const FormatButton = props => {
       
       props.onChange( 
     		applyFormat(
-    			props.value, {
-    		  	type: 'pop-card/popcard-link',
-    		  	attributes: {
-    		    datapopId: `${popId}`,
-    		    href: `${isUrl}`,
-    		    rel: 'no referrer noopener',
-    		    target: '_blank'
-  		  		},
-    		  
-  		  	}
+    			props.value,
+    			  { type:
+    			    'pop-card/popcard-link',
+    		  	  attributes: {
+    		        datapopId: `${popId}`,
+    		        href: `${isUrl}`,
+    		        rel: 'noreferrer noopener',
+    		        target: '_blank'
+  		  		  },
+    		    }
 		  	),
 		  	
   		  console.log('apply', props)
@@ -94,11 +95,9 @@ export const FormatButton = props => {
     		}else {
           
           props.onChange( 
-          	//remove(props.value)
-    			  
-  					removeFormat(
-    				props.value,
-    				'pop-card/popcard-link'
+          	removeFormat(
+    				  props.value,
+    				  'pop-card/popcard-link'
     				) 
     			);
     			removeSpan();
@@ -120,7 +119,8 @@ registerFormatType(
         title: 'Add my popcard',
         tagName: 'a',
         className: 'popcard-link',
-        attributes: { datapopId: 'data-popId',
+        attributes: { 
+          datapopId: 'data-popid',
           href: 'href',
           rel: 'rel',
           target: 'target'
@@ -129,3 +129,4 @@ registerFormatType(
         
     }
 );
+
