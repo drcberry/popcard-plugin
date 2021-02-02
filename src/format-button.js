@@ -69,6 +69,10 @@ export const FormatButton = props => {
       return
     }
     
+    let startSelection = wp.data.select('core/block-editor').getSelectionStart().offset;
+    let endSelection = wp.data.select('core/block-editor').getSelectionEnd().offset;
+    let currentSelection = wp.data.select('core/block-editor').getSelectedBlock().attributes.content.slice(startSelection, endSelection);
+    
     if(!props.isActive){
       makePopId();
       
@@ -82,9 +86,10 @@ export const FormatButton = props => {
     		    rel: 'no referrer noopener',
     		    target: '_blank'
   		  		},
+  		  		startSelection, endSelection
     		  
   		  	}
-		  	),
+		    ),
 		  	
   		  console.log('apply', props)
 		  );
@@ -94,11 +99,9 @@ export const FormatButton = props => {
     		}else {
           
           props.onChange( 
-          	//remove(props.value)
-    			  
-  					removeFormat(
-    				props.value,
-    				'pop-card/popcard-link'
+          	removeFormat(
+    				  props.value,
+    				  'pop-card/popcard-link'
     				) 
     			);
     			removeSpan();
