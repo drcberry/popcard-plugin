@@ -16,7 +16,7 @@ export const FormatButton = props => {
     function makePopId() {
     
     	let isNew;
-      popId = Math.floor(Math.random() * 10);
+      popId = Math.floor(Math.random() * 1000);
       allPopCard = document.querySelectorAll('.popcard-link');
       console.log('new Id',popId);
       
