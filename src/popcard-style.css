@@ -9,11 +9,11 @@
   --border-color: #99cc99;
 }
 
-.popcard {
+span.popcard {
 	position: absolute;
 	color: var(--text-color);
 	background: var(--bg-color);
-	font-size: 1em;
+	font-size: 0.8em;
 	line-height: 1.5;
 	padding: 2px 10px;
 	width: 20px;
@@ -23,33 +23,34 @@
 	overflow:visible;
 	
 }
-.popcard a {
+span.popcard a {
 	color: var(--link-color);
 	border-bottom: 1px dotted;
 	transition: none;
 	font-size: 0.9em;
 }
-.show-card {
+
+span.show-card {
 	position: absolute;
 	height: auto;
 	width: 220px;
 	margin: -3em 10px 10px 2px;
 	border: 1px solid var(--border-color);
-	border-radius: 8px;
-	box-shadow: 2px 2px 6px black;
+	border-radius: 2px;
+	box-shadow: 2px 2px 6px var(--text-color);
 	visibility: visible;
 		
 }
 
 //Arrow for card
-.show-card::after {
+span.show-card::after {
 	content: "";
 	position: absolute;
 	top: 100%;
 	left: 6px;
 	border-width: 12px;
 	border-style: solid;
-	border-color: #333 transparent transparent transparent;
+	border-color: var(--border-color) transparent transparent transparent;
 }
 
 //class for visually hidden, compatible with screen reader

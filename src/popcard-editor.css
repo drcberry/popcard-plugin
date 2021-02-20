@@ -1,13 +1,13 @@
 //CSS for popcard in editor
 
-.popcard a {
+popcard a {
   color: black;
 }
 .editor-styles-wrapper [data-span-popid]::before {
 	content: 'popcard';
 	display: inline-block;
 	visibility: visible;
-	width: auto;
+	width: 50px;
 	font-size: 0.7em;
 	color: #333;
 	background: #22222224;
@@ -15,20 +15,22 @@
 	overflow: hidden;
 }
 .editor-styles-wrapper [data-span-popid]:hover::before {
-	content: ""
+	content: "";
+	width: 0;
+	visibility: hidden;
 }
 
 .editor-styles-wrapper [data-span-popid] {
-	content: "";
+	ontent: "";
 	white-space: pre-wrap;
 	display: inline-block;
-	position: absolute;
-	bottom: 1.3em;
+	position: relative;
+	bottom: 0.3em;
 	visibility: hidden;
 	font-size: 0.9em;
 	z-index: 0;
 	height: 1em;
-	width: auto;
+	width: 50px;
 	padding: 0 0 1.3em 0;
 	overflow: hidden;
 	background-color: #11331118;
@@ -37,6 +39,7 @@
 .editor-styles-wrapper [data-span-popid]:hover {
 	position: relative;
 	bottom: 0;
+	padding-bottom: 2px;
 	visibility: visible;
 	color: #222;
 	line-height: 1.2;
@@ -49,13 +52,18 @@
 	position: relative;
 	bottom: 0;
 	margin-bottom: -6px;
+	padding-bottom: 2px;
 	visibility: visible;
 	font-size: 0.9em;
+	line-height: 1.2;
 	color: #242;
 	width: auto;
+	height: auto;
 }
 
 .rich-text:focus [data-rich-text-format-boundary].popcard::before {
 	content: "";
 	height: 0.9em;
+	width: 0;
+	visibility: hidden;
 }
