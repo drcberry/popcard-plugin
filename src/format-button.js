@@ -1,7 +1,6 @@
 //For registerFormat
 import { registerFormatType, toggleFormat, applyFormat, removeFormat, insert, remove } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
-
 import {PopIcon} from './pop-icon.js';
 
 export const FormatButton = props => {
