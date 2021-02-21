@@ -32,13 +32,13 @@ span.popcard a {
 span.show-card {
 	position: absolute;
 	height: auto;
-	width: 220px;
+	width: 250px;
 	margin: -3em 10px 10px 2px;
 	border: 1px solid var(--border-color);
 	border-radius: 2px;
 	box-shadow: 2px 2px 6px var(--text-color);
 	visibility: visible;
-		
+	z-index: 99;	
 }
 
 //Arrow for card
